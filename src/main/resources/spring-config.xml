@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+                                             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                             xmlns:context="http://www.springframework.org/schema/context"
+                                             xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.lsd.netty.*"/>
+    <context:annotation-config/>
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations" value="classpath:config.properties"/>
+    </bean>
+    <bean class="com.lsd.netty.config.Config" name="config">
+        <property name="host" value="${com.netty.server.host}"/>
+        <property name="port" value="${com.netty.server.port}"/>
+        <property name="workerThread" value="${com.netty.server.workThread}"/>
+        <property name="webRoot" value="${com.netty.server.webRoot}"/>
+        <property name="fileRoot" value="${com.netty.server.fileRoot}"/>
+    </bean>
+
+</beans>

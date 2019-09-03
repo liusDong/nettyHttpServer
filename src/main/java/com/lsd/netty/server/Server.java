@@ -41,7 +41,7 @@ public class Server {
             bootstrap.channel(NioServerSocketChannel.class)
                     .group(bossGroup,workerGroup)
                     .childHandler(new ServerInitialization());
-            ChannelFuture channelFuture = bootstrap.bind(host, port).sync();
+            ChannelFuture channelFuture = bootstrap.bind(port).sync();
 
             System.out.println("服务端启动：");
             System.out.println("host:"+host+"\r\n"+"port:"+port);
